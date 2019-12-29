@@ -30,13 +30,31 @@ NEXT_VERSION="$CURRENT_VERSION"
 # Alpine
 CURRENT_ALPINE_VERSION=$(cat Dockerfile | grep "FROM alpine:")
 CURRENT_ALPINE_VERSION="${CURRENT_ALPINE_VERSION#*:}"
-ALPINE_VERSION=$(curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/alpine/tags' | jq '."results"[]["name"]' | grep -P -o "(\d+\.)+\d+" | head -n 1)
+ALPINE_VERSION=$(curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/alpine/tags' | jq '."results"[]["name"]' | grep -m 1 -P -o "(\d+\.)+\d+")
 if [ "$CURRENT_ALPINE_VERSION" != "$ALPINE_VERSION" ]
 then
 	echo "Alpine $ALPINE_VERSION available!"
 
 	RELEASE="${CURRENT_VERSION#*-}"
 	NEXT_VERSION="${CURRENT_VERSION%-*}-$((RELEASE+1))"
+fi
+
+# PHP-FPM
+FPM_PKG="php7-fpm"
+CURRENT_FPM_VERSION=$(cat Dockerfile | grep "$FPM_PKG=")
+CURRENT_FPM_VERSION="${CURRENT_FPM_VERSION#*=}"
+FPM_VERSION=$(curl -L -s "https://pkgs.alpinelinux.org/package/v${ALPINE_VERSION%.*}/community/x86_64/$FPM_PKG" | grep -m 1 -P -o "(\d+\.)+\d+-r\d+" )
+if [ "$CURRENT_FPM_VERSION" != "$FPM_VERSION" ]
+then
+	echo "PHP-FPM $FPM_VERSION available!"
+
+	if [ "${CURRENT_FPM_VERSION%-*}" != "${FPM_VERSION%-*}" ]
+	then
+		NEXT_VERSION="${FPM_VERSION%-*}-1"
+	else
+		RELEASE="${CURRENT_VERSION#*-}"
+		NEXT_VERSION="${CURRENT_VERSION%-*}-$((RELEASE+1))"
+	fi
 fi
 
 if [ "$CURRENT_VERSION" == "$NEXT_VERSION" ]
@@ -49,6 +67,11 @@ else
 		if [ "$CURRENT_ALPINE_VERSION" != "$ALPINE_VERSION" ]
 		then
 			sed -i "s|FROM alpine:.*|FROM alpine:$ALPINE_VERSION|" Dockerfile
+		fi
+
+		if [ "$CURRENT_FPM_VERSION" != "$FPM_VERSION" ]
+		then
+			sed -i "s|$FPM_PKG=.*|$FPM_PKG=$FPM_VERSION|" Dockerfile
 		fi
 
 		read -p "Commit changes? [y/n]" -n 1 -r && echo
