@@ -1,0 +1,12 @@
+[Unit]
+Description=PHP FastCGI Process Manager
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStartPre=-/bin/docker create --rm --interactive --name php-fpm --publish 9000:9000/tcp hetsh/php-fpm
+ExecStart=/bin/docker start --attach php-fpm
+ExecStop=/bin/docker stop php-fpm
+
+[Install]
+WantedBy=multi-user.target
