@@ -27,13 +27,14 @@ cd "$WORK_DIR"
 CURRENT_VERSION=$(git describe --tags --abbrev=0)
 NEXT_VERSION="$CURRENT_VERSION"
 
-# Alpine
-CURRENT_ALPINE_VERSION=$(cat Dockerfile | grep "FROM alpine:")
-CURRENT_ALPINE_VERSION="${CURRENT_ALPINE_VERSION#*:}"
-ALPINE_VERSION=$(curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/alpine/tags' | jq '."results"[]["name"]' | grep -m 1 -P -o "(\d+\.)+\d+")
-if [ "$CURRENT_ALPINE_VERSION" != "$ALPINE_VERSION" ]
+# Base Image
+IMAGE_NAME="alpine"
+CURRENT_IMAGE_VERSION=$(cat Dockerfile | grep "FROM $IMAGE_NAME:")
+CURRENT_IMAGE_VERSION="${CURRENT_IMAGE_VERSION#*:}"
+IMAGE_VERSION=$(curl -L -s "https://registry.hub.docker.com/v2/repositories/library/$IMAGE_NAME/tags" | jq '."results"[]["name"]' | grep -m 1 -P -o "(\d+\.)+\d+" )
+if [ "$CURRENT_IMAGE_VERSION" != "$IMAGE_VERSION" ]
 then
-	echo "Alpine $ALPINE_VERSION available!"
+	echo "Alpine $IMAGE_VERSION available!"
 
 	RELEASE="${CURRENT_VERSION#*-}"
 	NEXT_VERSION="${CURRENT_VERSION%-*}-$((RELEASE+1))"
@@ -43,7 +44,7 @@ fi
 FPM_PKG="php7-fpm"
 CURRENT_FPM_VERSION=$(cat Dockerfile | grep "$FPM_PKG=")
 CURRENT_FPM_VERSION="${CURRENT_FPM_VERSION#*=}"
-FPM_VERSION=$(curl -L -s "https://pkgs.alpinelinux.org/package/v${ALPINE_VERSION%.*}/community/x86_64/$FPM_PKG" | grep -m 1 -P -o "(\d+\.)+\d+-r\d+" )
+FPM_VERSION=$(curl -L -s "https://pkgs.alpinelinux.org/package/v${IMAGE_VERSION%.*}/community/x86_64/$FPM_PKG" | grep -m 1 -P -o "(\d+\.)+\d+-r\d+" )
 if [ "$CURRENT_FPM_VERSION" != "$FPM_VERSION" ]
 then
 	echo "PHP-FPM $FPM_VERSION available!"
@@ -66,7 +67,7 @@ else
 	then
 		if [ "$CURRENT_ALPINE_VERSION" != "$ALPINE_VERSION" ]
 		then
-			sed -i "s|FROM alpine:.*|FROM alpine:$ALPINE_VERSION|" Dockerfile
+			sed -i "s|FROM $IMAGE_NAME:.*|FROM $IMAGE_NAME:$ALPINE_VERSION|" Dockerfile
 		fi
 
 		if [ "$CURRENT_FPM_VERSION" != "$FPM_VERSION" ]
