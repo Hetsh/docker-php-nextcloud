@@ -62,8 +62,14 @@ if [ "$CURRENT_VERSION" == "$NEXT_VERSION" ]
 then
 	echo "No updates available."
 else
-	read -p "Save changes? [y/n]" -n 1 -r && echo
-	if [[ $REPLY =~ ^[Yy]$ ]]
+	if [ "$1" == "--noconfirm" ]
+	then
+		SAVE="y"
+	else
+		read -p "Save changes? [y/n]" -n 1 -r SAVE && echo
+	fi
+	
+	if [[ $SAVE =~ ^[Yy]$ ]]
 	then
 		if [ "$CURRENT_ALPINE_VERSION" != "$ALPINE_VERSION" ]
 		then
@@ -75,8 +81,14 @@ else
 			sed -i "s|$FPM_PKG=.*|$FPM_PKG=$FPM_VERSION|" Dockerfile
 		fi
 
-		read -p "Commit changes? [y/n]" -n 1 -r && echo
-		if [[ $REPLY =~ ^[Yy]$ ]]
+		if [ "$1" == "--noconfirm" ]
+		then
+			COMMIT="y"
+		else
+			read -p "Commit changes? [y/n]" -n 1 -r COMMIT && echo
+		fi
+
+		if [[ $COMMIT =~ ^[Yy]$ ]]
 		then
 			git add Dockerfile
 			git commit -m "Version bump to $NEXT_VERSION"
