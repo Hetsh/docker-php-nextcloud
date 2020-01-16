@@ -12,7 +12,7 @@ fi
 WORK_DIR="${0%/*}"
 cd "$WORK_DIR"
 
-APP_NAME="php-fpm"
+APP_NAME="php-fpm-nextcloud"
 docker build --tag "$APP_NAME" .
 
 read -p "Test image? [y/n]" -n 1 -r && echo

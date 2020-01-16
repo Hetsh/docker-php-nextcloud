@@ -17,13 +17,15 @@ RUN apk add --no-cache \
     php7-pecl-imagick=3.4.4-r2 \
     php7-pecl-mcrypt=1.0.3-r0
 
+ARG APP_USER="php"
+RUN adduser --uid "100" --system --no-create-home --home "/srv" --gecos "$APP_USER" "$APP_USER"
+
 ARG WWW_CONF="/etc/php7/php-fpm.d/www.conf"
-RUN adduser --uid "100" --system --no-create-home --home "/srv" --gecos "nginx" "nginx" && \
-    sed -i "s|user = nobody|user = nginx|" "$WWW_CONF" && \
+RUN sed -i "s|user = nobody|user = $APP_USER|" "$WWW_CONF" && \
     sed -i "s|;env\[PATH\]|env\[PATH\]|" "$WWW_CONF" && \
     sed -i "s|listen = 127.0.0.1:9000|listen = 0.0.0.0:9000|" "$WWW_CONF"
 
 EXPOSE 9000/tcp
 #      PHP-FPM
 
-ENTRYPOINT exec php-fpm7 --nodaemonize --force-stderr --fpm-config /etc/php7/php-fpm.conf
+ENTRYPOINT ["php-fpm7", "--nodaemonize", "--force-stderr", "--fpm-config", "/etc/php7/php-fpm.conf"]
