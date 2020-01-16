@@ -22,5 +22,6 @@ then
 	--rm \
 	--interactive \
 	--publish 9000:9000/tcp \
+	--name "$APP_NAME" \
 	"$APP_NAME"
 fi
