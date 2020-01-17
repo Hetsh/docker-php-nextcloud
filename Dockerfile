@@ -18,13 +18,21 @@ RUN apk add --no-cache \
     php7-pecl-mcrypt=1.0.3-r0
 
 ARG APP_USER="http"
-RUN sed -i "s|xfs|$APP_USER|" "/etc/passwd" && \
-    sed -i "s|/etc/X11/fs|/srv|" "/etc/passwd"
+#RUN sed -i "s|xfs|$APP_USER|" "/etc/passwd" && \
+#    sed -i "s|/etc/X11/fs|/srv|" "/etc/passwd"
+RUN adduser --uid "100" --system --no-create-home --home "/srv" --gecos "$APP_USER" "$APP_USER"
 
 ARG WWW_CONF="/etc/php7/php-fpm.d/www.conf"
-RUN sed -i "s|user = nobody|user = $APP_USER|" "$WWW_CONF" && \
+RUN sed -i "s|user.*|user = $APP_USER|" "$WWW_CONF" && \
     sed -i "s|;env\[PATH\]|env\[PATH\]|" "$WWW_CONF" && \
-    sed -i "s|listen = 127.0.0.1:9000|listen = 0.0.0.0:9000|" "$WWW_CONF"
+    sed -i "s|listen.*|listen = 9000|" "$WWW_CONF" && \
+    sed -i "s|;catch_workers_output.*|catch_workers_output = yes|" "$WWW_CONF" && \
+    sed -i "s|;decorate_workers_output.*|decorate_workers_output = no|" "$WWW_CONF" && \
+    sed -i "s|;access\.log.*|access\.log = /proc/self/fd/2|" "$WWW_CONF"
+
+ARG PHP_INI="/etc/php7/php.ini"
+RUN sed -i "s|upload_max_filesize.*|upload_max_filesize = 1024M|" "$PHP_INI" && \
+    sed -i "s|;error_log.*|error_log = /proc/self/fd/2|" "$PHP_INI"
 
 EXPOSE 9000/tcp
 #      PHP-FPM
