@@ -1,4 +1,4 @@
-FROM alpine:3.11.3
+FROM library/alpine:3.11.3
 RUN apk add --no-cache \
     php7-fpm=7.3.14-r0 \
     php7-bz2=7.3.14-r0 \
