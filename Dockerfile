@@ -1,19 +1,19 @@
-FROM library/alpine:3.11.3
+FROM library/alpine:20200122
 RUN apk add --no-cache \
-    php7-fpm=7.3.14-r0 \
-    php7-bz2=7.3.14-r0 \
-    php7-curl=7.3.14-r0 \
-    php7-exif=7.3.14-r0 \
-    php7-gd=7.3.14-r0 \
-    php7-gmp=7.3.14-r0 \
-    php7-iconv=7.3.14-r0 \
-    php7-imap=7.3.14-r0 \
-    php7-intl=7.3.14-r0 \
-    php7-ldap=7.3.14-r0 \
-    php7-opcache=7.3.14-r0 \
-    php7-pdo_sqlite=7.3.14-r0 \
-    php7-sqlite3=7.3.14-r0 \
-    php7-zip=7.3.14-r0 \
+    php7-fpm=7.3.15-r0 \
+    php7-bz2=7.3.15-r0 \
+    php7-curl=7.3.15-r0 \
+    php7-exif=7.3.15-r0 \
+    php7-gd=7.3.15-r0 \
+    php7-gmp=7.3.15-r0 \
+    php7-iconv=7.3.15-r0 \
+    php7-imap=7.3.15-r0 \
+    php7-intl=7.3.15-r0 \
+    php7-ldap=7.3.15-r0 \
+    php7-opcache=7.3.15-r0 \
+    php7-pdo_sqlite=7.3.15-r0 \
+    php7-sqlite3=7.3.15-r0 \
+    php7-zip=7.3.15-r0 \
     php7-pecl-imagick=3.4.4-r2 \
     php7-pecl-mcrypt=1.0.3-r0
 

@@ -17,10 +17,10 @@ assert_dependency "jq"
 assert_dependency "curl"
 
 # Alpine Linux
-update_image "library/alpine" "Alpine" "(\d+\.)+\d+"
+update_image "library/alpine" "Alpine" "\d{8}"
 
 # Packages
-PKG_URL="https://pkgs.alpinelinux.org/package/v${_NEW_IMG_VERSION%.*}/community/x86_64"
+PKG_URL="https://pkgs.alpinelinux.org/package/edge/community/x86_64"
 update_pkg "php7-fpm" "PHP-FPM" "true" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php7-bz2" "PHP-BZ2" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php7-curl" "PHP-CURL" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
