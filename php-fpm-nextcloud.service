@@ -4,7 +4,14 @@ After=docker.service
 Requires=docker.service
 
 [Service]
-ExecStartPre=-/bin/docker create --rm --interactive --publish 9000:9000/tcp --mount type=bind,source="/path/to/app",target="/path/to/app" --name php-fpm-nextcloud hetsh/php-fpm-nextcloud
+ExecStartPre=-/bin/docker create \
+              --rm \
+              --interactive \
+              --publish 9000:9000/tcp \
+              --mount type=bind,source="/srv",target="/srv" \
+              --mount type=bind,source=/etc/localtime,target=/etc/localtime,readonly \
+              --name php-fpm-nextcloud \
+              hetsh/php-fpm-nextcloud
 ExecStart=/bin/docker start --attach php-fpm-nextcloud
 ExecStop=/bin/docker stop php-fpm-nextcloud
 
