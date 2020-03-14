@@ -1,4 +1,4 @@
-# Stationeers
+# PHP-FPM
 PHP FastCGI Process Manager, equipped with modules for Nextcloud.
 
 ## Running the server
