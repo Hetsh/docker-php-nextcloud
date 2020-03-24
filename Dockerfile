@@ -1,4 +1,4 @@
-FROM hetsh/php-fpm:7.3.16-2
+FROM hetsh/php-fpm:7.3.16-3
 RUN apk add --no-cache \
     php7-bz2=7.3.16-r1 \
     php7-curl=7.3.16-r1 \
@@ -13,7 +13,7 @@ RUN apk add --no-cache \
     php7-pdo_sqlite=7.3.16-r1 \
     php7-sqlite3=7.3.16-r1 \
     php7-zip=7.3.16-r1 \
-    php7-pecl-imagick=3.4.4-r2 \
+    php7-pecl-imagick=3.4.4-r3 \
     php7-pecl-mcrypt=1.0.3-r0
 
 ARG PHP_INI="/etc/php7/php.ini"
