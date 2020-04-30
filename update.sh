@@ -16,7 +16,7 @@ source libs/docker.sh
 assert_dependency "jq"
 assert_dependency "curl"
 
-# Alpine Linux
+# Alpine Linux with PHP-FPM
 update_image "hetsh/php-fpm" "PHP-FPM" "true" "(\d+\.)+\d+-\d+"
 
 # Packages
