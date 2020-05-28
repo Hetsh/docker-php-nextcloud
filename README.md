@@ -1,5 +1,5 @@
 # PHP-FPM
-PHP FastCGI Process Manager, equipped with modules for Nextcloud.
+PHP FastCGI Process Manager, equipped with extensions for Nextcloud.
 
 ## Running the server
 ```bash
@@ -13,7 +13,7 @@ docker stop php-fpm-nextcloud
 ```
 
 ## Configuration
-Modules need to be enabled via a custom `php.ini` file. It can be mounted readonly:
+Adjustments can be made via a custom `php.ini` file. It can be mounted readonly:
 ```bash
 --mount type=bind,readonly,source="/path/to/php.ini",target="/etc/php7/php.ini"
 ```
