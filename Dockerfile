@@ -30,3 +30,15 @@ RUN apk add --no-cache \
     php7-zip=7.3.18-r0 \
     php7-pecl-imagick=3.4.4-r3 \
     php7-pecl-mcrypt=1.0.3-r0
+
+ARG PHP_DIR="/etc/php7"
+ARG INI_CONF="$PHP_DIR/php.ini"
+ARG FPM_CONF="$PHP_DIR/php-fpm.conf"
+RUN sed -i "s|^memory_limit.*|memory_limit = 512M|" "$INI_CONF" && \
+    sed -i "s|^;opcache.enable.*|opcache.enable=1|" "$INI_CONF" && \
+    sed -i "s|^;opcache.interned_strings_buffer.*|opcache.interned_strings_buffer=8|" "$INI_CONF" && \
+    sed -i "s|^;opcache.max_accelerated_files.*|opcache.max_accelerated_files=10000|" "$INI_CONF" && \
+    sed -i "s|^;opcache.memory_consumption.*|opcache.memory_consumption=128|" "$INI_CONF" && \
+    sed -i "s|^;opcache.save_comments.*|opcache.save_comments=1|" "$INI_CONF" && \
+    sed -i "s|^;opcache.revalidate_freq.*|opcache.revalidate_freq=1|" "$INI_CONF" && \
+    sed -i "s|^;log_limit =.*|log_limit = 16384|" "$FPM_CONF"
