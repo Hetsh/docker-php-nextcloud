@@ -1,5 +1,5 @@
 [Unit]
-Description=PHP FastCGI Process Manager
+Description=PHP FastCGI Process Manager for Nextcloud
 After=docker.service
 Requires=docker.service
 
@@ -10,10 +10,10 @@ ExecStartPre=-/bin/docker create \
               --publish 9000:9000/tcp \
               --mount type=bind,source="/srv",target="/srv" \
               --mount type=bind,source=/etc/localtime,target=/etc/localtime,readonly \
-              --name php-fpm-nextcloud \
+              --name php-fpm-cloud \
               hetsh/php-fpm-nextcloud
-ExecStart=/bin/docker start --attach php-fpm-nextcloud
-ExecStop=/bin/docker stop php-fpm-nextcloud
+ExecStart=/bin/docker start --attach php-fpm-cloud
+ExecStop=/bin/docker stop php-fpm-cloud
 
 [Install]
 WantedBy=multi-user.target
