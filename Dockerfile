@@ -1,6 +1,5 @@
-FROM hetsh/php-fpm:7.3.19-1
+FROM hetsh/php-fpm:7.3.19-2
 RUN apk add --no-cache \
-    php7=7.3.19-r0 \
     php7-bz2=7.3.19-r0 \
     php7-bcmath=7.3.19-r0 \
     php7-curl=7.3.19-r0 \
@@ -34,7 +33,7 @@ RUN apk add --no-cache \
 ARG PHP_DIR="/etc/php7"
 ARG INI_CONF="$PHP_DIR/php.ini"
 ARG FPM_CONF="$PHP_DIR/php-fpm.conf"
-RUN sed -i "s|^memory_limit.*|memory_limit = 512M|" "$INI_CONF" && \
+RUN sed -i "s|^memory_limit.*|memory_limit = 1024M|" "$INI_CONF" && \
     sed -i "s|^;opcache.enable.*|opcache.enable=1|" "$INI_CONF" && \
     sed -i "s|^;opcache.interned_strings_buffer.*|opcache.interned_strings_buffer=8|" "$INI_CONF" && \
     sed -i "s|^;opcache.max_accelerated_files.*|opcache.max_accelerated_files=10000|" "$INI_CONF" && \

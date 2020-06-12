@@ -21,7 +21,6 @@ update_image "hetsh/php-fpm" "PHP-FPM" "true" "(\d+\.)+\d+-\d+"
 
 # Packages
 PKG_URL="https://pkgs.alpinelinux.org/package/edge/community/x86_64"
-update_pkg "php7" "PHP" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php7-bz2" "PHP-BZ2" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php7-bcmath" "PHP-BCMATH" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php7-curl" "PHP-CURL" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
