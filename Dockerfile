@@ -33,11 +33,14 @@ RUN apk add --no-cache \
 ARG PHP_DIR="/etc/php7"
 ARG INI_CONF="$PHP_DIR/php.ini"
 ARG FPM_CONF="$PHP_DIR/php-fpm.conf"
-RUN sed -i "s|^memory_limit.*|memory_limit = 1024M|" "$INI_CONF" && \
+RUN sed -i "s|^memory_limit.*|memory_limit=1024M|" "$INI_CONF" && \
     sed -i "s|^;opcache.enable.*|opcache.enable=1|" "$INI_CONF" && \
     sed -i "s|^;opcache.interned_strings_buffer.*|opcache.interned_strings_buffer=8|" "$INI_CONF" && \
     sed -i "s|^;opcache.max_accelerated_files.*|opcache.max_accelerated_files=10000|" "$INI_CONF" && \
     sed -i "s|^;opcache.memory_consumption.*|opcache.memory_consumption=128|" "$INI_CONF" && \
     sed -i "s|^;opcache.save_comments.*|opcache.save_comments=1|" "$INI_CONF" && \
     sed -i "s|^;opcache.revalidate_freq.*|opcache.revalidate_freq=1|" "$INI_CONF" && \
-    sed -i "s|^;log_limit =.*|log_limit = 16384|" "$FPM_CONF"
+    sed -i "s|^upload_max_filesize.*|upload_max_filesize=10G|" "$INI_CONF" && \
+    sed -i "s|^max_file_uploads.*|max_file_uploads=1024|" "$INI_CONF" && \
+    sed -i "s|^post_max_size.*|post_max_size=10G|" "$INI_CONF" && \
+    sed -i "s|^;log_limit.*|log_limit=16384|" "$FPM_CONF"
