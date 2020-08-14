@@ -33,6 +33,7 @@ RUN apk add --no-cache \
 ARG PHP_DIR="/etc/php7"
 ARG INI_CONF="$PHP_DIR/php.ini"
 ARG FPM_CONF="$PHP_DIR/php-fpm.conf"
+ARG WWW_CONF="$PHP_DIR/php-fpm.d/www.conf"
 RUN sed -i "s|^memory_limit.*|memory_limit = 4096M|" "$INI_CONF" && \
     sed -i "s|^;opcache.enable.*|opcache.enable = 1|" "$INI_CONF" && \
     sed -i "s|^;opcache.interned_strings_buffer.*|opcache.interned_strings_buffer = 8|" "$INI_CONF" && \
@@ -43,4 +44,5 @@ RUN sed -i "s|^memory_limit.*|memory_limit = 4096M|" "$INI_CONF" && \
     sed -i "s|^upload_max_filesize.*|upload_max_filesize = 1G|" "$INI_CONF" && \
     sed -i "s|^max_file_uploads.*|max_file_uploads = 512|" "$INI_CONF" && \
     sed -i "s|^post_max_size.*|post_max_size = 1G|" "$INI_CONF" && \
-    sed -i "s|^;log_limit.*|log_limit = 16384|" "$FPM_CONF"
+    sed -i "s|^;log_limit.*|log_limit = 16384|" "$FPM_CONF" && \
+    sed -i "s|^pm.max_children.*|pm.max_children = 10|" "$WWW_CONF"
