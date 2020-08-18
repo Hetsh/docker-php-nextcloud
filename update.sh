@@ -52,7 +52,7 @@ update_pkg "php7-pecl-imagick" "PHP-IMAGICK" "false" "$PKG_URL" "(\d+\.)+\d+-r\d
 update_pkg "php7-pecl-mcrypt" "PHP-MCRYPT" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 
 if ! updates_available; then
-	echo "No updates available."
+	#echo "No updates available."
 	exit 0
 fi
 
