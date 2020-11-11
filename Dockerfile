@@ -27,7 +27,7 @@ RUN apk add --no-cache \
     php7-xmlreader=7.4.12-r0 \
     php7-xmlwriter=7.4.12-r0 \
     php7-zip=7.4.12-r0 \
-    php7-pecl-imagick=3.4.4-r4 \
+    php7-pecl-imagick=3.4.4-r5 \
     php7-pecl-mcrypt=1.0.3-r2
 
 ARG PHP_DIR="/etc/php7"
