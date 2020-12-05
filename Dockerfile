@@ -19,6 +19,7 @@ RUN apk add --no-cache \
     php7-openssl=7.4.13-r0 \
     php7-pcntl=7.4.13-r0 \
     php7-pdo_sqlite=7.4.13-r0 \
+    php7-pdo_mysql=7.4.13-r0 \
     php7-posix=7.4.13-r0 \
     php7-session=7.4.13-r0 \
     php7-simplexml=7.4.13-r0 \
