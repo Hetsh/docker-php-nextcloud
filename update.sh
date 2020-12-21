@@ -17,7 +17,7 @@ assert_dependency "jq"
 assert_dependency "curl"
 
 # Alpine Linux with PHP-FPM
-update_image "hetsh/php-fpm" "PHP-FPM" "true" "(\d+\.)+\d+-\d+"
+update_image "hetsh/php7-fpm" "PHP7 FPM" "true" "(\d+\.)+\d+-\d+"
 
 # Packages
 PKG_URL="https://pkgs.alpinelinux.org/package/edge/community/x86_64"
