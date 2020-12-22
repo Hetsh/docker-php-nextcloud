@@ -1,4 +1,4 @@
-# PHP-FPM
+# PHP Nextcloud
 PHP FastCGI Process Manager, equipped with extensions for Nextcloud.
 
 ## Running the server
