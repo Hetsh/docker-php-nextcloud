@@ -20,7 +20,7 @@ if ! docker version &> /dev/null; then
 fi
 
 # Build the image
-APP_NAME="php-fpm-nextcloud"
+APP_NAME="php-nextcloud"
 IMG_NAME="hetsh/$APP_NAME"
 docker build --tag "$IMG_NAME:latest" --tag "$IMG_NAME:$_NEXT_VERSION" .
 
