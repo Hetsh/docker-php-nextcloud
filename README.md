@@ -23,7 +23,7 @@ The systemd unit can be found in my GitHub [repository](https://github.com/Hetsh
 ```bash
 systemctl enable php-nextcloud.service --now
 ```
-By default, the systemd service assumes `/srv/nextcloud` for website data and `/etc/localtime` for timezone.
+By default, the systemd service assumes `/srv/nextcloud` for website data, `/var/log/php-nextcloud` for logs and `/etc/localtime` for timezone.
 Since this is a personal systemd unit file, you might need to adjust some parameters to suit your setup.
 
 ## Fork Me!

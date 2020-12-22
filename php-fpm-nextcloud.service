@@ -8,6 +8,7 @@ ExecStartPre=-/bin/docker create \
               --rm \
               --publish 9000:9000/tcp \
               --mount type=bind,source="/srv/nextcloud",target="/srv/nextcloud" \
+              --mount type=bind,source=/var/log/php-nextcloud,target=/var/log/php7 \
               --mount type=bind,source=/etc/localtime,target=/etc/localtime,readonly \
               --name php-nextcloud \
               hetsh/php-nextcloud
