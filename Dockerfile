@@ -1,4 +1,4 @@
-FROM hetsh/php7-fpm:7.4.14-1
+FROM hetsh/php7-fpm:7.4.15-1
 RUN apk add --no-cache \
     php7-bz2=7.4.15-r0 \
     php7-bcmath=7.4.15-r0 \
