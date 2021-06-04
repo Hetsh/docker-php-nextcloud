@@ -1,4 +1,4 @@
-FROM hetsh/php8-fpm:8.0.6-1
+FROM hetsh/php8-fpm:8.0.6-2
 RUN apk add --no-cache \
     php8-bz2=8.0.6-r0 \
     php8-bcmath=8.0.6-r0 \
