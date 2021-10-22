@@ -27,7 +27,7 @@ RUN apk add --no-cache \
         php8-xmlreader=8.0.12-r0 \
         php8-xmlwriter=8.0.12-r0 \
         php8-zip=8.0.12-r0 \
-        php8-pecl-imagick=3.5.1-r0 \
+        php8-pecl-imagick=3.5.1-r1 \
         php8-pecl-mcrypt=1.0.4-r0
 
 ARG PHP_DIR="/etc/php8"
