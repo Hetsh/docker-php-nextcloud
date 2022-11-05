@@ -52,6 +52,7 @@ update_pkg "php81-zip" "PHP ZIP" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php81-pecl-imagick" "PHP IMAGICK" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 PKG_URL="$BASE_URL/testing/x86_64"
 update_pkg "php81-pecl-mcrypt" "PHP MCRYPT" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
+update_pkg "php81-pecl-smbclient" "PHP SMBClient" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 
 if ! updates_available; then
 	#echo "No updates available."

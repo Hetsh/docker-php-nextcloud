@@ -30,7 +30,8 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repos
         php81-xmlwriter=8.1.12-r0 \
         php81-zip=8.1.12-r0 \
         php81-pecl-imagick=3.7.0-r0 \
-        php81-pecl-mcrypt=1.0.4-r0
+        php81-pecl-mcrypt=1.0.4-r0 \
+        php81-pecl-smbclient=1.0.6-r1
 
 ARG PHP_DIR="/etc/php"
 ARG INI_CONF="$PHP_DIR/php.ini"
