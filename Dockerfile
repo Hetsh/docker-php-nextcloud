@@ -29,7 +29,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repos
         php81-xmlreader=8.1.19-r2 \
         php81-xmlwriter=8.1.19-r2 \
         php81-zip=8.1.19-r2 \
-        php81-pecl-imagick=3.7.0-r3 \
+        php81-pecl-imagick=3.7.0-r4 \
         php81-pecl-mcrypt=1.0.6-r0 \
         php81-pecl-smbclient=1.1.1-r0
 
