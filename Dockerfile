@@ -1,4 +1,4 @@
-FROM hetsh/php81-fpm:8.1.21-2
+FROM hetsh/php81-fpm:8.1.22-1
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
 	apk update && \
 	apk add --no-cache \
