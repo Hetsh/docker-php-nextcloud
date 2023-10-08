@@ -22,6 +22,7 @@ update_image "hetsh/php81-fpm" "PHP FPM" "true" "(\d+\.)+\d+-\d+"
 # Packages
 BASE_URL="https://pkgs.alpinelinux.org/package/edge"
 PKG_URL="$BASE_URL/community/x86_64"
+update_pkg "imagemagick-svg" "ImageMagick SVG Modules" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php81-bz2" "PHP BZ2" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php81-bcmath" "PHP BCMATH" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
 update_pkg "php81-curl" "PHP CURL" "false" "$PKG_URL" "(\d+\.)+\d+-r\d+"
