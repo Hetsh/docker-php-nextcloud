@@ -25,6 +25,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repos
         php81-session=8.1.24-r0 \
         php81-simplexml=8.1.24-r0 \
         php81-sqlite3=8.1.24-r0 \
+        php81-sysvsem=8.1.24-r0 \
         php81-xml=8.1.24-r0 \
         php81-xmlreader=8.1.24-r0 \
         php81-xmlwriter=8.1.24-r0 \
