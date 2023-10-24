@@ -2,7 +2,7 @@ FROM hetsh/php81-fpm:8.1.24-3
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
 	apk update && \
 	apk add --no-cache \
-        imagemagick-svg=7.1.1.19-r0 \
+        imagemagick-svg=7.1.1.21-r0 \
         php81-bz2=8.1.24-r2 \
         php81-bcmath=8.1.24-r2 \
         php81-curl=8.1.24-r2 \
