@@ -1,39 +1,38 @@
-FROM hetsh/php81-fpm:8.1.25-2
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-	apk update && \
-	apk add --no-cache \
-        imagemagick-svg=7.1.1.21-r0 \
-        php81-bz2=8.1.25-r1 \
-        php81-bcmath=8.1.25-r1 \
-        php81-curl=8.1.25-r1 \
-        php81-ctype=8.1.25-r1 \
-        php81-dom=8.1.25-r1 \
-        php81-exif=8.1.25-r1 \
-        php81-fileinfo=8.1.25-r1 \
-        php81-gd=8.1.25-r1 \
-        php81-gmp=8.1.25-r1 \
-        php81-iconv=8.1.25-r1 \
-        php81-imap=8.1.25-r1 \
-        php81-intl=8.1.25-r1 \
-        php81-ldap=8.1.25-r1 \
-        php81-mbstring=8.1.25-r1 \
-        php81-opcache=8.1.25-r1 \
-        php81-openssl=8.1.25-r1 \
-        php81-pcntl=8.1.25-r1 \
-        php81-pdo_sqlite=8.1.25-r1 \
-        php81-pdo_mysql=8.1.25-r1 \
-        php81-posix=8.1.25-r1 \
-        php81-session=8.1.25-r1 \
-        php81-simplexml=8.1.25-r1 \
-        php81-sqlite3=8.1.25-r1 \
-        php81-sysvsem=8.1.25-r1 \
-        php81-xml=8.1.25-r1 \
-        php81-xmlreader=8.1.25-r1 \
-        php81-xmlwriter=8.1.25-r1 \
-        php81-zip=8.1.25-r1 \
-        php81-pecl-imagick=3.7.0-r4 \
-        php81-pecl-mcrypt=1.0.6-r0 \
-        php81-pecl-smbclient=1.1.1-r1
+FROM hetsh/php82-fpm:8.2.15-1
+RUN apk update && \
+    apk add --no-cache \
+    imagemagick-svg=7.1.1.26-r0 \
+    php82-bcmath=8.2.15-r0 \
+    php82-bz2=8.2.15-r0 \
+    php82-ctype=8.2.15-r0 \
+    php82-curl=8.2.15-r0 \
+    php82-dom=8.2.15-r0 \
+    php82-exif=8.2.15-r0 \
+    php82-fileinfo=8.2.15-r0 \
+    php82-gd=8.2.15-r0 \
+    php82-gmp=8.2.15-r0 \
+    php82-iconv=8.2.15-r0 \
+    php82-imap=8.2.15-r0 \
+    php82-intl=8.2.15-r0 \
+    php82-ldap=8.2.15-r0 \
+    php82-mbstring=8.2.15-r0 \
+    php82-opcache=8.2.15-r0 \
+    php82-openssl=8.2.15-r0 \
+    php82-pcntl=8.2.15-r0 \
+    php82-pdo_mysql=8.2.15-r0 \
+    php82-pdo_sqlite=8.2.15-r0 \
+    php82-pecl-imagick=3.7.0-r6 \
+    php82-pecl-mcrypt=1.0.7-r0 \
+    php82-pecl-smbclient=1.1.1-r0 \
+    php82-posix=8.2.15-r0 \
+    php82-session=8.2.15-r0 \
+    php82-simplexml=8.2.15-r0 \
+    php82-sqlite3=8.2.15-r0 \
+    php82-sysvsem=8.2.15-r0 \
+    php82-xml=8.2.15-r0 \
+    php82-xmlreader=8.2.15-r0 \
+    php82-xmlwriter=8.2.15-r0 \
+    php82-zip=8.2.15-r0
 
 ARG PHP_DIR="/etc/php"
 ARG INI_CONF="$PHP_DIR/php.ini"
