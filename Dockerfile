@@ -24,9 +24,11 @@ RUN apk update && \
     php82-pecl-imagick=3.7.0-r6 \
     php82-pecl-mcrypt=1.0.7-r0 \
     php82-pecl-smbclient=1.1.1-r0 \
+    php82-phar=8.2.15-r0 \
     php82-posix=8.2.15-r0 \
     php82-session=8.2.15-r0 \
     php82-simplexml=8.2.15-r0 \
+    php82-sodium=8.2.15-r0 \
     php82-sqlite3=8.2.15-r0 \
     php82-sysvsem=8.2.15-r0 \
     php82-xml=8.2.15-r0 \
