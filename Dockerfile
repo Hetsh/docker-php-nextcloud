@@ -1,7 +1,7 @@
 FROM hetsh/php82-fpm:8.2.20-1
 RUN apk update && \
     apk add --no-cache \
-    imagemagick-svg=7.1.1.33-r0 \
+    imagemagick-svg=7.1.1.34-r0 \
     php82-bcmath=8.2.20-r0 \
     php82-bz2=8.2.20-r0 \
     php82-ctype=8.2.20-r0 \
