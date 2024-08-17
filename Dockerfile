@@ -1,4 +1,4 @@
-FROM hetsh/php82-fpm:8.2.22-1
+FROM hetsh/php82-fpm:8.2.22-2
 RUN apk update && \
     apk add --no-cache \
     imagemagick-svg=7.1.1.36-r0 \
