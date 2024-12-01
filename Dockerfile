@@ -1,7 +1,7 @@
 FROM hetsh/php83-fpm:8.3.14-1
 RUN apk update && \
     apk add --no-cache \
-    imagemagick-svg=7.1.1.39-r0 \
+    imagemagick-svg=7.1.1.41-r0 \
     php83-bcmath=8.3.14-r0 \
     php83-bz2=8.3.14-r0 \
     php83-ctype=8.3.14-r0 \
@@ -23,7 +23,7 @@ RUN apk update && \
     php83-pdo_sqlite=8.3.14-r0 \
     php83-pecl-imagick=3.7.0-r0 \
     php83-pecl-mcrypt=1.0.7-r0 \
-    php83-pecl-smbclient=1.1.1-r1 \
+    php83-pecl-smbclient=1.1.2-r0 \
     php83-phar=8.3.14-r0 \
     php83-posix=8.3.14-r0 \
     php83-session=8.3.14-r0 \
