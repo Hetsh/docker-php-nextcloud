@@ -1,7 +1,7 @@
 FROM hetsh/php83-fpm:8.3.23-1
 RUN apk update && \
     apk add --no-cache \
-    imagemagick-svg=7.1.1.44-r4 \
+    imagemagick-svg=7.1.2.0-r0 \
     php83-bcmath=8.3.23-r2 \
     php83-bz2=8.3.23-r2 \
     php83-ctype=8.3.23-r2 \
