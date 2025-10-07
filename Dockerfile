@@ -1,40 +1,41 @@
-FROM hetsh/php83-fpm:8.3.26-1
-RUN apk update && \
+FROM hetsh/php84-fpm:8.4.13-1
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
+    apk update && \
     apk add --no-cache \
-    imagemagick-svg=7.1.2.3-r1 \
-    php83-bcmath=8.3.26-r0 \
-    php83-bz2=8.3.26-r0 \
-    php83-ctype=8.3.26-r0 \
-    php83-curl=8.3.26-r0 \
-    php83-dom=8.3.26-r0 \
-    php83-exif=8.3.26-r0 \
-    php83-fileinfo=8.3.26-r0 \
-    php83-gd=8.3.26-r0 \
-    php83-gmp=8.3.26-r0 \
-    php83-iconv=8.3.26-r0 \
-    php83-imap=8.3.26-r0 \
-    php83-intl=8.3.26-r0 \
-    php83-ldap=8.3.26-r0 \
-    php83-mbstring=8.3.26-r0 \
-    php83-opcache=8.3.26-r0 \
-    php83-openssl=8.3.26-r0 \
-    php83-pcntl=8.3.26-r0 \
-    php83-pdo_mysql=8.3.26-r0 \
-    php83-pdo_sqlite=8.3.26-r0 \
-    php83-pecl-imagick=3.8.0-r1 \
-    php83-pecl-mcrypt=1.0.9-r0 \
-    php83-pecl-smbclient=1.2.0_pre-r0 \
-    php83-phar=8.3.26-r0 \
-    php83-posix=8.3.26-r0 \
-    php83-session=8.3.26-r0 \
-    php83-simplexml=8.3.26-r0 \
-    php83-sodium=8.3.26-r0 \
-    php83-sqlite3=8.3.26-r0 \
-    php83-sysvsem=8.3.26-r0 \
-    php83-xml=8.3.26-r0 \
-    php83-xmlreader=8.3.26-r0 \
-    php83-xmlwriter=8.3.26-r0 \
-    php83-zip=8.3.26-r0
+        imagemagick-svg=7.1.2.3-r1 \
+        php84-bcmath=8.4.13-r0 \
+        php84-bz2=8.4.13-r0 \
+        php84-ctype=8.4.13-r0 \
+        php84-curl=8.4.13-r0 \
+        php84-dom=8.4.13-r0 \
+        php84-exif=8.4.13-r0 \
+        php84-fileinfo=8.4.13-r0 \
+        php84-gd=8.4.13-r0 \
+        php84-gmp=8.4.13-r0 \
+        php84-iconv=8.4.13-r0 \
+        php84-intl=8.4.13-r0 \
+        php84-ldap=8.4.13-r0 \
+        php84-mbstring=8.4.13-r0 \
+        php84-opcache=8.4.13-r0 \
+        php84-openssl=8.4.13-r0 \
+        php84-pcntl=8.4.13-r0 \
+        php84-pdo_mysql=8.4.13-r0 \
+        php84-pdo_sqlite=8.4.13-r0 \
+        php84-pecl-imagick=3.8.0-r1 \
+        php84-pecl-imap=1.0.3-r0 \
+        php84-pecl-mcrypt=1.0.9-r0 \
+        php84-pecl-smbclient=1.2.0_pre-r0 \
+        php84-phar=8.4.13-r0 \
+        php84-posix=8.4.13-r0 \
+        php84-session=8.4.13-r0 \
+        php84-simplexml=8.4.13-r0 \
+        php84-sodium=8.4.13-r0 \
+        php84-sqlite3=8.4.13-r0 \
+        php84-sysvsem=8.4.13-r0 \
+        php84-xml=8.4.13-r0 \
+        php84-xmlreader=8.4.13-r0 \
+        php84-xmlwriter=8.4.13-r0 \
+        php84-zip=8.4.13-r0
 
 ARG PHP_DIR="/etc/php"
 ARG INI_CONF="$PHP_DIR/php.ini"
