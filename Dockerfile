@@ -1,9 +1,9 @@
-FROM hetsh/php84-fpm:8.4.14-1
-ARG LAST_UPGRADE="2025-10-30T21:15:17+01:00"
+FROM hetsh/php84-fpm:8.4.14-2
+ARG LAST_UPGRADE="2025-11-15T12:41:58+01:00"
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
     apk upgrade && \
     apk add --no-cache \
-        imagemagick-svg=7.1.2.3-r2 \
+        imagemagick-svg=7.1.2.3-r3 \
         php84-bcmath=8.4.14-r0 \
         php84-bz2=8.4.14-r0 \
         php84-ctype=8.4.14-r0 \
