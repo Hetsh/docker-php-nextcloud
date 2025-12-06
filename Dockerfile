@@ -1,5 +1,5 @@
-FROM hetsh/php84-fpm:8.4.15-1
-ARG LAST_UPGRADE="2025-11-22T12:00:09+01:00"
+FROM hetsh/php84-fpm:8.4.15-2
+ARG LAST_UPGRADE="2025-12-06T10:25:05+01:00"
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
     apk upgrade && \
     apk add --no-cache \
@@ -22,7 +22,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repos
         php84-pcntl=8.4.15-r0 \
         php84-pdo_mysql=8.4.15-r0 \
         php84-pdo_sqlite=8.4.15-r0 \
-        php84-pecl-imagick=3.8.0-r1 \
+        php84-pecl-imagick=3.8.1-r0 \
         php84-pecl-imap=1.0.3-r0 \
         php84-pecl-mcrypt=1.0.9-r0 \
         php84-pecl-smbclient=1.2.0_pre-r0 \
