@@ -1,5 +1,5 @@
-FROM hetsh/php84-fpm:8.4.17-3
-ARG LAST_UPGRADE="2026-01-29T10:07:26+01:00"
+FROM hetsh/php84-fpm:8.4.17-4
+ARG LAST_UPGRADE="2026-01-29T13:35:21+01:00"
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
     apk upgrade && \
     apk add --no-cache \
