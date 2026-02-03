@@ -4,7 +4,7 @@
 # This file will be sourced by scripts/update.sh to customize the update process
 
 
-MAIN_ITEM="hetsh/php84-fpm"
+IMG_NAME="hetsh/php-nextcloud"
 GIT_VERSION="$(git describe --tags --first-parent --abbrev=0)"
-update_image "$MAIN_ITEM" "(\d+\.)+\d+-\d+" "PHP FPM"
-update_packages_apk "hetsh/php-nextcloud"
+BASE_IMAGE_VERSION_REGEX="(\\d+\\.)+\\d+-\\d+"
+MAIN_ITEM="hetsh/php84-fpm"
