@@ -5,6 +5,6 @@
 
 
 IMG_NAME="hetsh/php-nextcloud"
-GIT_VERSION="$(git describe --tags --first-parent --abbrev=0)"
+IMG_VERSION="$(git describe --tags --first-parent --abbrev=0)"
 BASE_IMAGE_VERSION_REGEX="(\\d+\\.)+\\d+-\\d+"
-MAIN_ITEM="hetsh/php84-fpm"
+MAIN_ITEM="hetsh/php85-fpm"
