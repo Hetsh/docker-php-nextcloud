@@ -1,40 +1,40 @@
-FROM hetsh/php85-fpm:8.5.8-2
-ARG LAST_UPGRADE="2026-07-26T11:15:52+02:00"
+FROM hetsh/php85-fpm:8.5.9-1
+ARG LAST_UPGRADE="2026-08-01T12:21:54+02:00"
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
 	apk upgrade --no-cache && \
 	apk add --no-cache \
-		imagemagick-svg=7.1.2.27-r0 \
-		php85-bcmath=8.5.8-r0 \
-		php85-bz2=8.5.8-r0 \
-		php85-ctype=8.5.8-r0 \
-		php85-curl=8.5.8-r0 \
-		php85-dom=8.5.8-r0 \
-		php85-exif=8.5.8-r0 \
-		php85-fileinfo=8.5.8-r0 \
-		php85-gd=8.5.8-r0 \
-		php85-gmp=8.5.8-r0 \
-		php85-iconv=8.5.8-r0 \
-		php85-intl=8.5.8-r0 \
-		php85-ldap=8.5.8-r0 \
-		php85-mbstring=8.5.8-r0 \
-		php85-openssl=8.5.8-r0 \
-		php85-pcntl=8.5.8-r0 \
-		php85-pdo_mysql=8.5.8-r0 \
-		php85-pdo_sqlite=8.5.8-r0 \
+		imagemagick-svg=7.1.2.29-r0 \
+		php85-bcmath=8.5.9-r0 \
+		php85-bz2=8.5.9-r0 \
+		php85-ctype=8.5.9-r0 \
+		php85-curl=8.5.9-r0 \
+		php85-dom=8.5.9-r0 \
+		php85-exif=8.5.9-r0 \
+		php85-fileinfo=8.5.9-r0 \
+		php85-gd=8.5.9-r0 \
+		php85-gmp=8.5.9-r0 \
+		php85-iconv=8.5.9-r0 \
+		php85-intl=8.5.9-r0 \
+		php85-ldap=8.5.9-r0 \
+		php85-mbstring=8.5.9-r0 \
+		php85-openssl=8.5.9-r0 \
+		php85-pcntl=8.5.9-r0 \
+		php85-pdo_mysql=8.5.9-r0 \
+		php85-pdo_sqlite=8.5.9-r0 \
 		php85-pecl-imagick=3.8.1-r0 \
 		php85-pecl-imap=1.0.3-r0 \
 		php85-pecl-smbclient=1.2.0_pre-r0 \
-		php85-phar=8.5.8-r0 \
-		php85-posix=8.5.8-r0 \
-		php85-session=8.5.8-r0 \
-		php85-simplexml=8.5.8-r0 \
-		php85-sodium=8.5.8-r0 \
-		php85-sqlite3=8.5.8-r0 \
-		php85-sysvsem=8.5.8-r0 \
-		php85-xml=8.5.8-r0 \
-		php85-xmlreader=8.5.8-r0 \
-		php85-xmlwriter=8.5.8-r0 \
-		php85-zip=8.5.8-r0
+		php85-phar=8.5.9-r0 \
+		php85-posix=8.5.9-r0 \
+		php85-session=8.5.9-r0 \
+		php85-simplexml=8.5.9-r0 \
+		php85-sodium=8.5.9-r0 \
+		php85-sqlite3=8.5.9-r0 \
+		php85-sysvsem=8.5.9-r0 \
+		php85-xml=8.5.9-r0 \
+		php85-xmlreader=8.5.9-r0 \
+		php85-xmlwriter=8.5.9-r0 \
+		php85-zip=8.5.9-r0
 
 ARG PHP_DIR="/etc/php"
 ARG INI_CONF="$PHP_DIR/php.ini"
